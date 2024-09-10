@@ -15,7 +15,7 @@ let testMacros: [String: Macro.Type] = [
 final class MIOCoreMacrosTests: XCTestCase {
 
     func testContextVarMacro() throws {
-        #if canImport(MIOCoreMacros)
+//        #if canImport(MIOCoreMacros)
         assertMacroExpansion(
             """
             @ContextVar var user:User
@@ -32,6 +32,31 @@ final class MIOCoreMacrosTests: XCTestCase {
                 }
                 set {
                    globals[ "_user_key_" ] = newValue
+                }
+            }
+            """,
+            macros: testMacros
+        )
+//        #else
+//        throw XCTSkip("macros are only supported when running tests for the host platform")
+//        #endif
+    }
+    
+    func testContextVarMacro_ReadOnly() throws {
+        #if canImport(MIOCoreMacros)
+        assertMacroExpansion(
+            """
+            @ContextVar(accessor: .readOnly) var user:User
+            """,
+            expandedSource: """
+            var user:User {
+                get {
+                   var v = globals[ "_user_key_" ] as? User
+                   if v == nil {
+                       v = User()
+                       globals[ "_user_key_" ] = v
+                   }
+                   return v!
                 }
             }
             """,

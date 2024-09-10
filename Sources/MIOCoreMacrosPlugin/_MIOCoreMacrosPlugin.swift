@@ -5,6 +5,7 @@ import SwiftSyntaxMacros
 struct MIOCoreMacrosPlugin: CompilerPlugin {
     let providingMacros: [Macro.Type] = [
         ContextVarMacro.self,
-        OBJCPropertyMacro.self
+        OBJCPropertyMacro.self,
+        ProcedureCallMacro.self
     ]
 }
