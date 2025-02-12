@@ -1,6 +1,24 @@
 {
   "pins" : [
     {
+      "identity" : "adyen-pos-mobile-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Adyen/adyen-pos-mobile-ios",
+      "state" : {
+        "revision" : "6759c5f66d622ca7801f8f26d8f5cf8e1b52625c",
+        "version" : "3.3.0"
+      }
+    },
+    {
+      "identity" : "adyen-terminal-api-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Adyen/adyen-terminal-api-ios",
+      "state" : {
+        "revision" : "22ed27dcb96716d380a4181001936bce7e3c6258",
+        "version" : "2.0.0"
+      }
+    },
+    {
       "identity" : "aws-crt-swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/awslabs/aws-crt-swift",
