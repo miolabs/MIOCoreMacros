@@ -6,6 +6,7 @@ struct MIOCoreMacrosPlugin: CompilerPlugin {
     let providingMacros: [Macro.Type] = [
         ContextVarMacro.self,
         OBJCPropertyMacro.self,
-        ProcedureCallMacro.self
+        ProcedureCallMacro.self,
+        ExportMacro.self
     ]
 }
