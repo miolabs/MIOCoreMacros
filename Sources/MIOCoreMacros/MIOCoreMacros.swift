@@ -1,7 +1,7 @@
 // The Swift Programming Language
 // https://docs.swift.org/swift-book
 
-import Shared
+@_exported import Shared
 
 /// A macro that produces both a value and a string containing the
 /// source code that generated the value. For example,
@@ -16,9 +16,6 @@ public typealias ContextVarInitBlock = () -> Any
 
 @attached(accessor)
 public macro ContextVar( accessor: ContextVarAccessor = .readAndWrite, initBlock:ContextVarInitBlock? = nil) = #externalMacro( module: "MIOCoreMacrosPlugin", type: "ContextVarMacro" )
-
-@attached(peer, names: overloaded)
-public macro ProcedureCall() = #externalMacro(module: "MIOCoreMacrosPlugin", type: "ProcedureCallMacro")
 
 /// Exports a global function to WebAssembly (and, through mio-wasm-bindings, to JavaScript).
 /// The function stays plain Swift; the generated wrapper exists only when building for WASI
